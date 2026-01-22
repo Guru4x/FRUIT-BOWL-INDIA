@@ -11,21 +11,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Poppins;background:#f6fff7}
+body{
+  margin:0;
+  font-family:Poppins;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("Background.webp") center / cover no-repeat fixed;
+}
+
 .hero{
   min-height:85vh;
-  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url("Background.webp") center/cover;
-  display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fffbfb;
 }
-.hero h1{font-size:56px}
+.hero h1{font-size:56px;}
 
 section{padding:50px 20px;max-width:1100px;margin:auto}
 h2{text-align:center;margin-bottom:30px}
+section{
+  background:rgba(146, 144, 144, 0.92);
+  border-radius:20px;
+  margin:30px auto;
+}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 
 .card{
-  background:#fff;border-radius:16px;
+  background:#fffefe;border-radius:16px;
   box-shadow:0 10px 30px rgba(0,0,0,.15);
   overflow:hidden
 }
@@ -61,7 +76,20 @@ input,textarea,select{
   width:100%;padding:8px;margin-top:6px;border-radius:8px;border:1px solid #ccc
 }
 
-footer{background:#111;color:#ccc;text-align:center;padding:30px}
+footer{
+  background:rgba(0,0,0,0.75);
+  color:#eee;
+  text-align:center;
+  padding:30px;
+}
+footer a{color:#27ae60;text-decoration:none}
+@media(max-width:768px){
+  body{
+    background-attachment:scroll;
+    background-position:center top;
+  }
+}
+
 </style>
 </head>
 
@@ -76,7 +104,7 @@ footer{background:#111;color:#ccc;text-align:center;padding:30px}
 
 <!-- FRUIT BOWLS -->
 <section>
-<h2>🥗 Fruit Bowl Subscriptions</h2>
+<h2>🥗 Fruit Bowl Weekly Subscriptions</h2>
 <div class="grid">
   <div class="card"><img src="fruit bowl.webp"><div><h3>250g Fruit Bowl</h3><div class="price">₹600</div><button onclick="addItem('250g Fruit Bowl',600)">Add</button></div></div>
   <div class="card"><img src="mixed fruits.webp"><div><h3>350g Fruit Bowl</h3><div class="price">₹750</div><button onclick="addItem('350g Fruit Bowl',750)">Add</button></div></div>
@@ -86,7 +114,7 @@ footer{background:#111;color:#ccc;text-align:center;padding:30px}
 
 <!-- COMBOS -->
 <section>
-<h2>🔥 Combo Plans</h2>
+<h2>🔥 Combo Plans Weekly subscriptions</h2>
 <div class="grid">
   <div class="card"><img src="watermelon.webp"><div><h3>250g Bowl + Juice</h3><div class="price">₹950</div><button onclick="addItem('250g Combo + Juice',950)">Add</button></div></div>
   <div class="card"><img src="orange juice.webp"><div><h3>350g Bowl + Juice</h3><div class="price">₹1050</div><button onclick="addItem('350g Combo + Juice',1050)">Add</button></div></div>
@@ -96,21 +124,34 @@ footer{background:#111;color:#ccc;text-align:center;padding:30px}
 
 <!-- JUICES -->
 <section>
-<h2>🧃 Fresh Juices</h2>
+<h2>🍹 Fresh Juices 1 time pack</h2>
 <div class="grid">
-  <div class="card"><img src="watermelon.webp"><div><h3>Watermelon Juice</h3><div class="price">₹80</div><button onclick="addItem('Watermelon Juice',80)">Add</button></div></div>
-  <div class="card"><img src="orange juice.webp"><div><h3>Orange Juice</h3><div class="price">₹80</div><button onclick="addItem('Orange Juice',80)">Add</button></div></div>
-  <div class="card"><img src="pineapple.webp"><div><h3>Pineapple Juice</h3><div class="price">₹80</div><button onclick="addItem('Pineapple Juice',80)">Add</button></div></div>
-  <div class="card"><img src="sweetlime.webp"><div><h3>Sweet Lime Juice</h3><div class="price">₹90</div><button onclick="addItem('Sweet Lime Juice',90)">Add</button></div></div>
-  <div class="card"><img src="mixed fruit juice.webp"><div><h3>Mixed Fruit Juice</h3><div class="price">₹100</div><button onclick="addItem('Mixed Fruit Juice',100)">Add</button></div></div>
+  <div class="card"><img src="watermelon.webp"><div><h3>Watermelon Juice(250ml)</h3><div class="price">₹70</div><button onclick="addItem('Watermelon Juice',70)">Add</button></div></div>
+  <div class="card"><img src="orange juice.webp"><div><h3>Orange Juice(250ml)</h3><div class="price">₹80</div><button onclick="addItem('Orange Juice',80)">Add</button></div></div>
+  <div class="card"><img src="pineapple.webp"><div><h3>Pineapple Juice(250ml)</h3><div class="price">₹80</div><button onclick="addItem('Pineapple Juice',80)">Add</button></div></div>
+  <div class="card"><img src="sweetlime.webp"><div><h3>Sweet Lime Juice(250ml)</h3><div class="price">₹80</div><button onclick="addItem('Sweet Lime Juice',80)">Add</button></div></div>
+  <div class="card"><img src="mixed fruit juice.webp"><div><h3>Mixed Fruit Juice(250ml)</h3><div class="price">₹100</div><button onclick="addItem('Mixed Fruit Juice',100)">Add</button></div></div>
 </div>
 </section>
 
-<div id="cartBtn" onclick="toggleCart()">🛒</div>
+<div id="cartBtn" onclick="toggleCart()">
+  🛒 <span id="cartCount">0</span>
+</div>
 
 <!-- CART -->
 <div id="cart">
   <h3>Your Cart</h3>
+
+  <button onclick="toggleCart()" style="
+    background:#eee;
+    color:#333;
+    border:none;
+    padding:10px;
+    border-radius:12px;
+    margin-bottom:12px;
+    cursor:pointer;
+  ">← Back to Products</button>
+
   <div id="cartItems">Empty</div>
   <div class="total">Total: ₹ <span id="cartTotal">0</span></div>
 
@@ -127,40 +168,75 @@ footer{background:#111;color:#ccc;text-align:center;padding:30px}
   <button onclick="placeOrder()">Order on WhatsApp</button>
 </div>
 
+
 <footer>
-📍 Navalur & Padur | 📞 8977986649 <br>
+📍 Navalur,Padur & Kelambakkam | 📞 8977986649 <br>
 Instagram: @fruit_bowl_india
 </footer>
 
 <script>
-let cart=[], total=0;
+  let cart = JSON.parse(localStorage.getItem("fruitCart")) || [];
+let total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+function saveCart(){
+  localStorage.setItem("fruitCart", JSON.stringify(cart));
+}
+
 
 function toggleCart(){
   document.getElementById("cart").classList.toggle("open");
 }
 
 function addItem(name, price){
-  cart.push({name, price});
+  const item = cart.find(i => i.name === name);
+  if(item){
+    item.qty++;
+  }else{
+    cart.push({name, price, qty:1});
+  }
   total += price;
+  saveCart();
   renderCart();
-  toggleCart();
 }
 
 function removeItem(i){
   total -= cart[i].price;
-  cart.splice(i,1);
+  cart[i].qty--;
+  if(cart[i].qty === 0){
+    cart.splice(i,1);
+  }
+  saveCart();
   renderCart();
 }
+
 
 function renderCart(){
   const box = document.getElementById("cartItems");
   box.innerHTML = "";
+
   cart.forEach((c,i)=>{
-    box.innerHTML += `<div class="cart-item">${c.name} ₹${c.price} <span onclick="removeItem(${i})">✖</span></div>`;
+    box.innerHTML += `
+      <div class="cart-item">
+        <div>
+          <strong>${c.name}</strong><br>
+          ₹${c.price} × ${c.qty}
+        </div>
+        <div>
+          <button onclick="addItem('${c.name}',${c.price})">+</button>
+          <button onclick="removeItem(${i})">−</button>
+        </div>
+      </div>
+    `;
   });
-  if(cart.length===0) box.innerHTML="Empty";
+
+  if(cart.length === 0){
+    box.innerHTML = "Empty";
+  }
+
   document.getElementById("cartTotal").innerText = total;
+  document.getElementById("cartCount").innerText =
+    cart.reduce((s,i)=>s+i.qty,0);
 }
+renderCart();
 
 function placeOrder(){
   const name = document.getElementById("name").value.trim();
@@ -185,8 +261,14 @@ function placeOrder(){
     `Slot: ${slot}`;
 
   window.location.href = "https://wa.me/918977986649?text=" + msg;
+  cart = [];
+total = 0;
+saveCart();
+renderCart();
+
 }
 </script>
 
 </body>
 </html>
+
